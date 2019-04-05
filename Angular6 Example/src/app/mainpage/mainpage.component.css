@@ -1,0 +1,82 @@
+.form_container{
+    margin : 0 auto;
+    width:600px;
+ }
+ 
+ form {
+    background: white;
+    width: 500px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+    font-family: lato;
+    position: relative;
+    color: #333;
+    border-radius: 10px;
+ }
+ 
+ form header {
+    background: #FF3838;
+    padding: 30px 20px;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 600;
+    border-radius: 10px 10px 0 0;
+ }
+ 
+ form label {
+    margin-left: 20px;
+    display: inline-block;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    position: relative;
+ }
+ 
+ form label span {
+    color: #FF3838;
+    font-size: 2em;
+    position: absolute;
+    left: 2.3em;
+    top: -10px;
+ }
+ form input {
+    display: block;
+    width: 50%;
+    margin-left: 20px;
+    padding: 5px 20px;
+    font-size: 1em;
+    border-radius: 3px;
+    outline: none;
+    border: 1px solid #ccc;
+ }
+ 
+ form .help {
+    margin-left: 20px;
+    font-size: 0.8em;
+    color: #777;
+ }
+ 
+ form button {
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-family: inherit;
+    color: white;
+    background: #FF3838;
+    outline: none;
+    border: none;
+    padding: 5px 15px;
+    font-size: 1.3em;
+    font-weight: 400;
+    border-radius: 3px;
+    box-shadow: 0px 0px 10px rgba(51, 51, 51, 0.4);
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+ }
+ form button:hover {
+    background: #ff5252;
+ }
+
+ .table{background-color:#fff}.table-sm td,.table-sm th{padding:.3rem}.table-bordered{border:1px solid #eceeef}.table-bordered td,.table-bordered th{border:1px solid #eceeef}.table-bordered thead td,.table-bordered thead th{border-bottom-width:2px}.table-striped tbody tr:nth-of-type(odd){background-color:rgba(0,0,0,.05)}.table-hover tbody tr:hover{background-color:rgba(0,0,0,.075)}.table-active,.table-active>td,.table-active>th{background-color:rgba(0,0,0,.075)}.table-hover .table-active:hover{background-color:rgba(0,0,0,.075)}.table-hover .table-active:hover>td,.table-hover .table-active:hover>th{background-color:rgba(0,0,0,.075)}.table-success,.table-success>td,.table-success>th{background-color:#dff0d8}.table-hover .table-success:hover{background-color:#d0e9c6}.table-hover .table-success:hover>td,.table-hover .table-success:hover>th{background-color:#d0e9c6}.table-info,.table-info>td,.table-info>th{background-color:#d9edf7}.table-hover .table-info:hover{background-color:#c4e3f3}.table-hover .table-info:hover>td,.table-hover .table-info:hover>th{background-color:#c4e3f3}.table-warning,.table-warning>td,.table-warning>th{background-color:#fcf8e3}.table-hover .table-warning:hover{background-color:#faf2cc}.table-hover .table-warning:hover>td,.table-hover .table-warning:hover>th{background-color:#faf2cc}.table-danger,.table-danger>td,.table-danger>th{background-color:#f2dede}.table-hover .table-danger:hover{background-color:#ebcccc}.table-hover .table-danger:hover>td,.table-hover .table-danger:hover>th{background-color:#ebcccc}.thead-inverse th{color:#fff;background-color:#373a3c}.thead-default th{color:#55595c;background-color:#eceeef}.table-inverse{color:#eceeef;background-color:#373a3c}.table-inverse td,.table-inverse th,.table-inverse thead th{border-color:#55595c}.table-inverse.table-bordered{border:0}.table-responsive{display:block;width:100%;min-height:.01%;overflow-x:auto}.table-reflow thead{float:left}.table-reflow tbody{display:block;white-space:nowrap}.table-reflow td,.table-reflow th{border-top:1px solid #eceeef;border-left:1px solid #eceeef}.table-reflow td:last-child,.table-reflow th:last-child{border-right:1px solid #eceeef}.table-reflow tbody:last-child tr:last-child td,.table-reflow tbody:last-child tr:last-child th,.table-reflow tfoot:last-child tr:last-child td,.table-reflow tfoot:last-child tr:last-child th,.table-reflow thead:last-child tr:last-child td,.table-reflow thead:last-child tr:last-child th{border-bottom:1px solid #eceeef}.table-reflow tr{float:left}.table-reflow tr td,.table-reflow tr th{display:block!important;border:1px solid #eceeef}.form-control{display:block;width:100%;padding:.5rem .75rem;font-size:1rem;line-height:1.25;color:#55595c;background-color:#fff;background-image:none;}
+
+ 

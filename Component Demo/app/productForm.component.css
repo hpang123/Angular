@@ -1,0 +1,12 @@
+div {
+    background-color: lightcoral;
+}
+:host:hover { 
+    font-size: 25px;
+}
+/* .angularApp is defined in template.ts 
+
+ */
+:host-context(.angularApp) input {
+    background-color: lightgray;
+}

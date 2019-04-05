@@ -1,0 +1,35 @@
+<div class="form_container">
+  <form [formGroup]="formdata" (ngSubmit) = "onClickSubmit(formdata.value)" >
+     <header>Customer Details</header>
+     <label>FirstName <span>*</span></label>
+     <input type="text" name="fname" formControlName="fname"/>
+     <label>LastName <span>*</span></label>
+     
+     <input type="text" name="lname" formControlName="lname"/>
+     <label>Address <span></span></label>
+     <input type="text" name="address" formControlName="address"/>
+     <label>Phone No <span></span></label>
+     <input type="text" name="phoneno" formControlName="phoneno"/>
+     <button [disabled]="!formdata.valid" value="Submit">Submit</button>
+  </form>
+</div>
+<br/>
+
+<div id="custtable" style="display:none;margin:01 auto;">
+  <table class="table table-bordered table-striped p-a-1" style="width:800px; margin:1em auto;">
+     <thead>
+        <td>FirstName</td>
+        <td>LastName</td>
+        <td>Address</td>
+        <td>Phone No</td>
+     </thead>
+     <tbody>
+     <tr>
+        <td *ngFor="let data of cutomerdata">
+           <h5>{{data}}</h5>
+        </td>
+     </tr>
+    </tbody>
+  </table>
+</div>
+

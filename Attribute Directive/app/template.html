@@ -1,0 +1,176 @@
+<style>
+input.ng-dirty.ng-invalid { border: 2px solid #ff0000 }
+input.ng-dirty.ng-valid { border: 2px solid #6bc502 }
+
+.tool-tip {
+    border: 1px solid black;
+        width: 230px;
+        margin-left: 58px;
+        margin-top: -35px;
+        background-color: darkcyan;
+        border-radius: 4px;
+        height: 20px;
+        color: white;    
+}
+/*
+tooltip {outline:none; }
+tooltip strong {line-height:30px;}
+tooltip:hover {text-decoration:none;} 
+tooltip span {
+    z-index:10;display:none; padding:14px 20px;
+    margin-top:-30px; margin-left:28px;
+    width:300px; line-height:16px;
+}
+tooltip:hover span{
+    display:inline; position:absolute; color:#111;
+    border:1px solid #DCA; background:#fffAF0;}
+.callout {z-index:20;position:absolute;top:30px;border:0;left:-12px;}
+*/
+/*CSS3 extras*/
+/*
+tooltip span
+{
+    border-radius:4px;
+    box-shadow: 5px 5px 8px #CCC;
+}
+
+tr .spnTooltip {
+    z-index:10;display:none; padding:14px 20px;
+    margin-top:-30px; margin-left:28px;
+    width:300px; line-height:16px;
+}
+*/
+tr .spnTooltip {
+    z-index:10;display:none; padding:4px 4px 4px 4 px;
+    margin-top:-40px; margin-left:-350px;
+    width:300px; line-height:16px;
+}
+tr:hover .spnTooltip{
+    display:inline; position:absolute; color:#111;
+    border:1px solid #0000FF; background:#FFFFFF;}
+.callout {z-index:20;position:absolute;top:40px;border:0;left:-12px;}
+
+</style>
+
+
+<h2>Creating Attribute Directives Example</h2>
+
+<div class="col-xs-6">
+<form novalidate [formGroup]="form" (ngSubmit)="submitForm(form)">
+
+<div class="bg-danger p-a-1 m-b-1" *ngIf="formSubmitted && form.invalid">
+	There are problems with the form
+	<ul>
+		<li *ngFor="let error of form.getFormValidationMessages()">
+		{{error}}
+		</li>
+	</ul>
+</div>
+
+
+<div class="form-group" *ngFor="let control of form.productControls">
+	<label>{{control.label}}</label>
+	<input class="form-control" [(ngModel)]="newProduct[control.modelProperty]" name="{{control.modelProperty}}" formControlName="{{control.modelProperty}}" />
+	<ul class="text-danger list-unstyled" *ngIf="(formSubmitted || control.dirty) && control.invalid">
+		<li *ngFor="let error of control.getValidationMessages()">
+		{{error}}
+		</li>
+	</ul>
+</div>
+<button class="btn btn-primary" type="submit" [disabled]="formSubmitted && form.invalid"
+	[class.btn-secondary]="formSubmitted && form.invalid">Create
+</button>
+</form>
+</div>
+
+<div class="col-xs-6">
+
+<div class="form-group bg-info p-a-1">
+	<label>Name:</label>
+	<input class="bg-primary" [paModel]="newProduct.name" (paModelChange)="newProduct.name=$event" />
+</div>
+
+<div class="form-group bg-info p-a-1">
+Simplify two ways binding
+<label>Name:</label>
+<input class="bg-primary" [(paModel)]="newProduct.name" />
+</div>
+
+<div class="form-group bg-info p-a-1">
+<label>Name:</label>
+<input class="bg-primary" [(paModel)]="newProduct.name" #paModel="paModel" />
+<div class="bg-primary">Direction: {{paModel.direction}}</div>
+</div>
+
+
+<table class="table table-sm table-bordered m-t-1 table-striped">
+	<tr><th></th><th>Name</th><th>Category</th><th>Price</th></tr>
+	<tr *ngFor="let item of getProducts(); let i = index" 
+		[pa-attr]="getProducts().length < 6 ? 'bg-success' : 'bg-warning'"
+		[pa-product]="item" (pa-category)="newProduct.category=$event">
+		<td>{{i + 1}}</td>
+		<td>{{item.name}}</td>
+		
+		<td [pa-attr]="item.category == 'Soccer' ? 'bg-info' : null">{{item.category}}</td>
+		<td [pa-attr]="'bg-info'">{{item.price}}</td>
+	</tr>
+</table>
+</div>
+
+<div>
+<h2>Tooltip Demo</h2>
+<table class="table table-sm table-bordered m-t-1 table-striped">
+	<tr><th></th><th>Name</th><th>Category</th><th>Price</th></tr>
+	<tr *ngFor="let item of getProducts(); let i = index">
+		<td>{{i + 1}}</td>
+		<td>{{item.name}}</td>
+		
+		<td [pa-attr]="item.category == 'Soccer' ? 'bg-info' : null">{{item.category}}</td>
+		<td [pa-attr]="'bg-info'"> {{item.price}}
+		<span class="spnTooltip" *ngIf="item.category == 'Soccer'">
+			<table class="table">
+				<tr *ngFor="let subitem of getProducts(); let j = index">
+					<td><strong>{{subitem.category}}</strong><br /></td>
+					<td>The price is the ${{subitem.price}} by CSS.</td>
+				</tr>
+				
+			</table>
+    	</span>
+    	
+    	</td>
+	</tr>
+</table>
+
+
+ <a href="#" class="tooltip">
+    Tooltip
+    <span>
+        
+        <strong>Most Light-weight Tooltip</strong><br />
+        This is the easy-to-use Tooltip driven purely by CSS.
+    </span>
+</a>
+<a title="tootltip" href="#">fwffw</a>
+<table>
+    <tr><th>Detailed view</th></tr>
+    <tr title="row 1">
+    <td>
+    <span class="spnDetails">Details</span>
+    <span class="spnTooltip">
+        <strong>Most Light-weight Tooltip</strong><br />
+        This is the row 1 by CSS.
+    </span>
+    </td>
+    </tr>
+    <tr title="row 2">
+    <td ><span class="spnTooltip">
+        <strong>Most Light-weight Tooltip</strong><br />
+        This is the easy-to-use Tooltip driven purely by CSS.
+    </span>
+    <span class="spnDetails">Details</span>
+    
+    </td>
+    </tr>
+</table>
+
+</div>

@@ -1,0 +1,47 @@
+import {
+    Directive, ElementRef, Attribute, Input,
+    SimpleChange, Output, EventEmitter, HostListener, HostBinding
+} from "@angular/core";
+
+import { Product } from "./product.model";
+
+@Directive({
+    selector: "[pa-attr]"
+})
+export class PaAttrDirective {
+	/* Method 1 - Only add class
+	constructor(element: ElementRef) {
+		element.nativeElement.classList.add("bg-success");
+	}
+	*/
+	/* Method 2 - reading host element attribute: pa-attr-class 
+	constructor(element: ElementRef, @Attribute("pa-attr-class") bgClass: string) {
+		element.nativeElement.classList.add(bgClass || "bg-success");
+	}
+	*/
+	/* Method 3 Using a single host element attribute */
+	constructor(element: ElementRef, @Attribute("pa-attr") bgClass: string) {
+		element.nativeElement.classList.add(bgClass || "bg-success");
+	}
+	
+    
+	/*
+    @Input("pa-attr")
+    @HostBinding("class")
+    bgClass: string;
+
+
+    @Input("pa-product")
+    product: Product;
+
+    @Output("pa-category")
+    click = new EventEmitter<string>();
+
+    @HostListener("click")
+    triggerCustomEvent() {
+        if (this.product != null) {
+            this.click.emit(this.product.category);
+        }
+    }
+    */
+}
